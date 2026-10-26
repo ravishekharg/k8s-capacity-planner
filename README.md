@@ -17,7 +17,36 @@ The algorithms are the point of the project:
 
 ## Results
 
-_Filled from the CI run._
+Measured in CI (GitHub-hosted `ubuntu-24.04`); every run regenerates these in its job summary.
+
+**Heuristic quality vs the proven optimum** (300 random workloads of 14 pods on m6i.large, requests up to 60% of a
+node; branch and bound proved the optimum in all 300):
+
+| Heuristic | Optimal | Extra nodes in total | Worst case |
+|---|---|---|---|
+| First-Fit Decreasing | 230 / 300 (77%) | 70 | +1 node |
+| Best-Fit Decreasing | 223 / 300 (74%) | 77 | +1 node |
+
+The volume lower bound equalled the optimum in 248 / 300 cases, so a plan that hits the bound is usually provably
+optimal.
+
+**Speed at cluster scale** (random requests up to 25% of a node):
+
+| Pods | Lower bound | FFD, linear scan | FFD, segment tree | BFD |
+|---|---|---|---|---|
+| 1,000 | 139 | 141 nodes, 165 ms | 141 nodes, **17 ms** | 141 nodes, 178 ms |
+| 5,000 | 693 | 717 nodes, 4.6 s | 717 nodes, **0.24 s** | 715 nodes, 4.4 s |
+| 20,000 | 2,761 | (minutes) | 2,933 nodes, **2.7 s** | (minutes) |
+
+Same nodes, same pod placement (property-tested), about 10–20x faster.
+
+**Sample plan** (40 microservices, 164 pods, 59.6 vCPU / 102.5 GiB, ap-south-1): 4 x c6i.4xlarge for
+**$1,986/month**, equal to the lower bound for that type (provably the minimum node count), at 94% CPU / 88% memory
+of allocatable. Full report: [`examples/plan-ap-south-1.md`](examples/plan-ap-south-1.md).
+
+**End to end on kind:** 10 pods read through the API server (7 workload pods + coredns + local-path-provisioner),
+3 DaemonSets turned into per-node overhead, the static control-plane pods and the finished Job skipped, and the pod
+with an init container plus a native sidecar resolved to exactly 300m CPU / 144 MiB, as the scheduler computes it.
 
 ## How it works
 
