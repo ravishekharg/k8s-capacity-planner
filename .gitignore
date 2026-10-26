@@ -11,3 +11,4 @@ bench.json
 pods.json
 kind
 kind.yaml
+build/
