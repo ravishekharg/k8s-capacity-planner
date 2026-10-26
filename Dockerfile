@@ -7,7 +7,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certifi
 WORKDIR /app
 COPY pyproject.toml ./
 COPY capplan ./capplan
-COPY catalog ./catalog
 RUN pip install --no-cache-dir . && useradd -u 10001 -m planner
 USER 10001
 ENTRYPOINT ["capplan"]

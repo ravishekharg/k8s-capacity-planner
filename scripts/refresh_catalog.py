@@ -15,7 +15,7 @@ SOURCE = "https://instances.vantage.sh/instances.json"
 FAMILIES = ["m6i", "c6i", "r6i", "m7i", "c7i", "r7i", "m7g", "c7g", "r7g", "t3"]
 SIZES = ["medium", "large", "xlarge", "2xlarge", "4xlarge"]
 REGIONS = ["us-east-1", "ap-south-1", "eu-west-1"]
-OUT = pathlib.Path(__file__).resolve().parents[1] / "catalog" / "ec2.json"
+OUT = pathlib.Path(__file__).resolve().parents[1] / "capplan" / "catalog" / "ec2.json"
 
 
 def load(path: str | None) -> list[dict]:

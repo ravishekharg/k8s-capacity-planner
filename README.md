@@ -25,7 +25,7 @@ _Filled from the CI run._
 flowchart LR
   k["kubectl get pods -A -o json / live cluster"] --> parse["effective request per pod:<br/>max(sum(app)+sidecars, largest init + earlier sidecars) + overhead"]
   parse --> ds["DaemonSet pods become per-node overhead,<br/>static/finished pods skipped, no-request pods defaulted"]
-  cat[("catalog/ec2.json<br/>vCPU, memory, max pods, prices")] --> alloc["EKS allocatable: capacity - kube-reserved - eviction"]
+  cat[("capplan/catalog/ec2.json<br/>vCPU, memory, max pods, prices")] --> alloc["EKS allocatable: capacity - kube-reserved - eviction"]
   ds --> pack["pack per instance type<br/>(BFD / FFD / segment-tree FFD)"]
   alloc --> pack
   pack --> lb["lower bound per type"]
@@ -37,7 +37,7 @@ flowchart LR
   sidecars (`restartPolicy: Always` init containers) add to both phases, `spec.overhead` is added on top.
 - **Allocatable** uses the EKS AMI formulas (CPU: 6%/1%/0.5%/0.25% per core; memory: 255 MiB + 11 MiB per max pod
   + 100 MiB eviction). For m6i.large that is 1930m CPU and 7518 MiB, matching AWS's documented values.
-- **Catalog**: `catalog/ec2.json` is a dated snapshot (vCPU, memory, EKS max pods, Linux on-demand USD/hour for
+- **Catalog**: `capplan/catalog/ec2.json` is a dated snapshot (vCPU, memory, EKS max pods, Linux on-demand USD/hour for
   us-east-1, ap-south-1, eu-west-1) built by `scripts/refresh_catalog.py` from the public instances.vantage.sh
   dataset (built from the AWS pricing API).
 

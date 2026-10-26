@@ -18,6 +18,9 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools]
 packages = ["capplan"]
 
+[tool.setuptools.package-data]
+capplan = ["catalog/*.json"]
+
 [tool.ruff]
 line-length = 120
 

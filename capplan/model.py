@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 
 from capplan.allocatable import allocatable_cpu_m, allocatable_mem_mi
 
-DEFAULT_CATALOG = pathlib.Path(__file__).resolve().parents[1] / "catalog" / "ec2.json"
+DEFAULT_CATALOG = pathlib.Path(__file__).resolve().parent / "catalog" / "ec2.json"
 HOURS_PER_MONTH = 730
 
 
