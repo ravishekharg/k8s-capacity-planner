@@ -1,0 +1,88 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: lint, tests, benchmark
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -e ".[dev]"
+      - run: ruff check .
+      - run: pytest -q
+      - name: benchmark (heuristics vs exact optimum, speed at scale)
+        run: capplan bench --trials 300 --out bench.json > /dev/null
+      - name: sample plan
+        run: |
+          capplan sample --services 40 --out pods.json
+          capplan plan --pods pods.json --region ap-south-1 --families m6i,c6i,r6i,m7i,c7i,r7i --out plan.md
+      - name: job summary
+        run: |
+          python - >> "$GITHUB_STEP_SUMMARY" <<'EOF'
+          import json
+          b = json.load(open("bench.json"))
+          q = b["quality"]
+          print("## Heuristics vs exact optimum")
+          print(f"{q['trials']} random workloads of {q['pods_per_trial']} pods on {q['node_type']}, "
+                f"optimum proven by branch and bound in {q['exact_proven']}/{q['trials']}\n")
+          print("| heuristic | optimal | total extra nodes | worst case |\n|---|---|---|---|")
+          for h in ("ffd", "bfd"):
+              s = q[h]
+              print(f"| {h.upper()} | {s['optimal']}/{q['trials']} | {s['extra_nodes']} | +{s['worst_extra']} |")
+          print("\n## Speed\n\n| pods | lower bound | FFD scan | FFD segment tree | BFD |\n|---|---|---|---|---|")
+          for r in b["speed"]:
+              f = lambda k: f"{r[k + '_nodes']} nodes, {r[k + '_ms']} ms" if k + "_ms" in r else "skipped"
+              print(f"| {r['pods']} | {r['lower_bound']} | {f('ffd_scan')} | {f('ffd_tree')} | {f('bfd')} |")
+          EOF
+          cat plan.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with: { name: results, path: "bench.json\nplan.md" }
+
+  e2e:
+    name: end-to-end on a kind cluster
+    needs: test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -e .
+      - name: kind cluster (1 control plane + 2 workers)
+        run: |
+          cat > kind.yaml <<'EOF'
+          kind: Cluster
+          apiVersion: kind.x-k8s.io/v1alpha4
+          nodes: [{role: control-plane}, {role: worker}, {role: worker}]
+          EOF
+          curl -fsSLo kind https://kind.sigs.k8s.io/dl/v0.24.0/kind-linux-amd64 && chmod +x kind
+          ./kind create cluster --config kind.yaml --wait 120s
+      - run: bash e2e/run.sh
+      - name: plan in job summary
+        if: always()
+        run: test -f plan.md && cat plan.md >> "$GITHUB_STEP_SUMMARY" || true
+
+  image:
+    name: container image + manifest validation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t capplan:ci .
+      - run: docker run --rm capplan:ci bench --trials 20 > /dev/null
+      - name: kubeconform
+        run: |
+          curl -sSL https://github.com/yannh/kubeconform/releases/download/v0.6.7/kubeconform-linux-amd64.tar.gz | tar xz
+          ./kubeconform -strict -summary deploy/cronjob.yaml e2e/workload.yaml

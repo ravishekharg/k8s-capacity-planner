@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.hypothesis/
+plan.json
+plan.md
+bench.json
+pods.json
+kind
+kind.yaml

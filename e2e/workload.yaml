@@ -1,0 +1,82 @@
+# End-to-end workload for a kind cluster: Deployments with known requests, a pod with an init container and a
+# native sidecar, a DaemonSet, a pod without requests and a finished Job. The e2e script checks that capplan reads
+# all of it exactly as the scheduler would.
+apiVersion: v1
+kind: Namespace
+metadata: { name: shop }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: api, namespace: shop }
+spec:
+  replicas: 4
+  selector: { matchLabels: { app: api } }
+  template:
+    metadata: { labels: { app: api } }
+    spec:
+      containers:
+        - name: app
+          image: registry.k8s.io/pause:3.10
+          resources: { requests: { cpu: 50m, memory: 64Mi } }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: orders, namespace: shop }
+spec:
+  replicas: 2
+  selector: { matchLabels: { app: orders } }
+  template:
+    metadata: { labels: { app: orders } }
+    spec:
+      initContainers:
+        - name: migrate          # runs alone first: counts only if larger than the steady state
+          image: busybox:1.37
+          command: ["true"]
+          resources: { requests: { cpu: 300m, memory: 32Mi } }
+        - name: proxy            # native sidecar (restartPolicy Always): adds to the steady state
+          image: registry.k8s.io/pause:3.10
+          restartPolicy: Always
+          resources: { requests: { cpu: 20m, memory: 16Mi } }
+      containers:
+        - name: app
+          image: registry.k8s.io/pause:3.10
+          resources: { requests: { cpu: 100m, memory: 128Mi } }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: legacy, namespace: shop }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: legacy } }
+  template:
+    metadata: { labels: { app: legacy } }
+    spec:
+      containers:
+        - name: app              # no requests: capplan applies the default (100m / 128Mi)
+          image: registry.k8s.io/pause:3.10
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata: { name: log-agent, namespace: shop }
+spec:
+  selector: { matchLabels: { app: log-agent } }
+  template:
+    metadata: { labels: { app: log-agent } }
+    spec:
+      containers:
+        - name: agent
+          image: registry.k8s.io/pause:3.10
+          resources: { requests: { cpu: 30m, memory: 48Mi } }
+---
+apiVersion: batch/v1
+kind: Job
+metadata: { name: done, namespace: shop }
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: once
+          image: busybox:1.37
+          command: ["true"]
+          resources: { requests: { cpu: 500m, memory: 512Mi } }

@@ -1,0 +1,4596 @@
+{
+ "items": [
+  {
+   "metadata": {
+    "name": "svc00-api-0",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc00-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc00-api-1",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc00-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc00-api-2",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc00-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc01-api-0",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc01-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc01-api-1",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc01-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc02-web-small-0",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc02-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc02-web-small-1",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc02-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc02-web-small-2",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc02-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc02-web-small-3",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc02-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc02-web-small-4",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc02-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc02-web-small-5",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc02-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc03-web-small-0",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc03-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc03-web-small-1",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc03-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc03-web-small-2",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc03-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc03-web-small-3",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc03-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc03-web-small-4",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc03-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc03-web-small-5",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc03-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc04-web-small-0",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc04-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc04-web-small-1",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc04-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc04-web-small-2",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc04-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc04-web-small-3",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc04-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc04-web-small-4",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc04-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc04-web-small-5",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc04-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc05-web-small-0",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc05-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc05-web-small-1",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc05-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc06-api-0",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc06-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc06-api-1",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc06-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc07-web-small-0",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc07-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc07-web-small-1",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc07-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc07-web-small-2",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc07-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc07-web-small-3",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc07-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc07-web-small-4",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc07-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc07-web-small-5",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc07-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc08-api-0",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc08-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc08-api-1",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc08-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc08-api-2",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc08-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc08-api-3",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc08-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc08-api-4",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc08-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc08-api-5",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc08-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc09-web-small-0",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc09-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc09-web-small-1",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc09-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc09-web-small-2",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc09-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc10-api-large-0",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc10-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc10-api-large-1",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc10-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc10-api-large-2",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc10-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc10-api-large-3",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc10-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc10-api-large-4",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc10-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc10-api-large-5",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc10-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc11-worker-0",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc11-worker"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "2000m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc11-worker-1",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc11-worker"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "2000m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc11-worker-2",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc11-worker"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "2000m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc11-worker-3",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc11-worker"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "2000m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc11-worker-4",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc11-worker"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "2000m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc11-worker-5",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc11-worker"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "2000m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc12-api-0",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc12-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc12-api-1",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc12-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc13-search-0",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc13-search"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1500m",
+        "memory": "6144Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc13-search-1",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc13-search"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1500m",
+        "memory": "6144Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc14-api-0",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc14-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc14-api-1",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc14-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc14-api-2",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc14-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc15-web-small-0",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc15-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc15-web-small-1",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc15-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc15-web-small-2",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc15-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc16-api-0",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc16-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc16-api-1",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc16-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc16-api-2",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc16-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc16-api-3",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc16-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc16-api-4",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc16-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc16-api-5",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc16-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc17-api-0",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc17-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc17-api-1",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc17-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc17-api-2",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc17-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc18-web-small-0",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc18-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc18-web-small-1",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc18-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc18-web-small-2",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc18-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc18-web-small-3",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc18-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc18-web-small-4",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc18-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc18-web-small-5",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc18-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc19-api-large-0",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc19-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc19-api-large-1",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc19-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc19-api-large-2",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc19-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc19-api-large-3",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc19-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc20-web-small-0",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc20-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc20-web-small-1",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc20-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc21-api-0",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc21-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc21-api-1",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc21-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc21-api-2",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc21-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc21-api-3",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc21-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc21-api-4",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc21-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc21-api-5",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc21-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc22-web-small-0",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc22-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc22-web-small-1",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc22-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc22-web-small-2",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc22-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc22-web-small-3",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc22-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc22-web-small-4",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc22-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc22-web-small-5",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc22-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc23-api-0",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc23-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc23-api-1",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc23-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc23-api-2",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc23-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc23-api-3",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc23-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc24-api-0",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc24-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc24-api-1",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc24-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc24-api-2",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc24-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc24-api-3",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc24-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc24-api-4",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc24-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc25-api-0",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc25-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc25-api-1",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc25-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc25-api-2",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc25-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc26-jvm-service-0",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc26-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc26-jvm-service-1",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc26-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc26-jvm-service-2",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc26-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc27-web-small-0",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc27-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc27-web-small-1",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc27-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc27-web-small-2",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc27-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc27-web-small-3",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc27-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc28-api-0",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc28-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc28-api-1",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc28-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc28-api-2",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc28-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc28-api-3",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc28-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc29-api-large-0",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc29-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc29-api-large-1",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc29-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc29-api-large-2",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc29-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc29-api-large-3",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc29-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc30-api-large-0",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc30-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc30-api-large-1",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc30-api-large"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "500m",
+        "memory": "1024Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc31-web-small-0",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc31-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc31-web-small-1",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc31-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc31-web-small-2",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc31-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc31-web-small-3",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc31-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc31-web-small-4",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc31-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc32-web-small-0",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc32-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc32-web-small-1",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc32-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc32-web-small-2",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc32-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc32-web-small-3",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc32-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc33-web-small-0",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc33-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc33-web-small-1",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc33-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc33-web-small-2",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc33-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc33-web-small-3",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc33-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc33-web-small-4",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc33-web-small"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "100m",
+        "memory": "128Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc34-api-0",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc34-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc34-api-1",
+    "namespace": "team4",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc34-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc35-jvm-service-0",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc35-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc35-jvm-service-1",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc35-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc35-jvm-service-2",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc35-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc35-jvm-service-3",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc35-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc35-jvm-service-4",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc35-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc35-jvm-service-5",
+    "namespace": "team5",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc35-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc36-jvm-service-0",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc36-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc36-jvm-service-1",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc36-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc36-jvm-service-2",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc36-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc36-jvm-service-3",
+    "namespace": "team0",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc36-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc37-api-0",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc37-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc37-api-1",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc37-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc37-api-2",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc37-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc37-api-3",
+    "namespace": "team1",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc37-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc38-api-0",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc38-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc38-api-1",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc38-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc38-api-2",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc38-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc38-api-3",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc38-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc38-api-4",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc38-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc38-api-5",
+    "namespace": "team2",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc38-api"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "250m",
+        "memory": "512Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc39-jvm-service-0",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc39-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  },
+  {
+   "metadata": {
+    "name": "svc39-jvm-service-1",
+    "namespace": "team3",
+    "ownerReferences": [
+     {
+      "kind": "ReplicaSet",
+      "name": "svc39-jvm-service"
+     }
+    ]
+   },
+   "spec": {
+    "containers": [
+     {
+      "name": "app",
+      "resources": {
+       "requests": {
+        "cpu": "1000m",
+        "memory": "2048Mi"
+       }
+      }
+     }
+    ]
+   },
+   "status": {
+    "phase": "Running"
+   }
+  }
+ ]
+}

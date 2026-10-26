@@ -1,0 +1,65 @@
+# Run the planner inside the cluster every night with read-only access; the report goes to the job log
+# (ship it to Slack/S3 by adding a sidecar or replacing the command).
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: capacity-planner
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: capplan
+  namespace: capacity-planner
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: capplan-read
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "nodes"]
+    verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: capplan-read
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: capplan-read
+subjects:
+  - kind: ServiceAccount
+    name: capplan
+    namespace: capacity-planner
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: capplan
+  namespace: capacity-planner
+spec:
+  schedule: "0 3 * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      backoffLimit: 1
+      ttlSecondsAfterFinished: 86400
+      template:
+        spec:
+          serviceAccountName: capplan
+          restartPolicy: Never
+          securityContext:
+            runAsNonRoot: true
+            seccompProfile: { type: RuntimeDefault }
+          containers:
+            - name: capplan
+              image: ghcr.io/ravishekharg/k8s-capacity-planner:0.1.0
+              args: ["plan", "--live", "--region", "ap-south-1", "--headroom", "0.15"]
+              resources:
+                requests: { cpu: 100m, memory: 128Mi }
+                limits: { memory: 256Mi }
+              securityContext:
+                allowPrivilegeEscalation: false
+                readOnlyRootFilesystem: true
+                capabilities: { drop: ["ALL"] }
