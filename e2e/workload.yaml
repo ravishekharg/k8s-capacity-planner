@@ -1,6 +1,6 @@
 # End-to-end workload for a kind cluster: Deployments with known requests, a pod with an init container and a
-# native sidecar, a DaemonSet, a pod without requests and a finished Job. The e2e script checks that capplan reads
-# all of it exactly as the scheduler would.
+# native sidecar, an HA Deployment with required pod anti-affinity, a DaemonSet, a pod without requests and a
+# finished Job. The e2e script checks that capplan reads all of it exactly as the scheduler would.
 apiVersion: v1
 kind: Namespace
 metadata: { name: shop }
@@ -54,6 +54,25 @@ spec:
       containers:
         - name: app              # no requests: capplan applies the default (100m / 128Mi)
           image: registry.k8s.io/pause:3.10
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: ha, namespace: shop }      # required anti-affinity: never two replicas on one node
+spec:
+  replicas: 2
+  selector: { matchLabels: { app: ha } }
+  template:
+    metadata: { labels: { app: ha } }
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector: { matchLabels: { app: ha } }
+              topologyKey: kubernetes.io/hostname
+      containers:
+        - name: app
+          image: registry.k8s.io/pause:3.10
+          resources: { requests: { cpu: 50m, memory: 32Mi } }
 ---
 apiVersion: apps/v1
 kind: DaemonSet

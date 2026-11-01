@@ -1,13 +1,21 @@
 """Markdown / JSON rendering of plans."""
 from __future__ import annotations
 
+from collections import Counter
+
 from capplan.fleet import Plan
 from capplan.kube import Workload
-from capplan.model import Resources
+from capplan.model import Pod, Resources
 
 
 def _gib(mi: int) -> str:
     return f"{mi / 1024:.1f} GiB"
+
+
+def spread_groups(pods: list[Pod]) -> dict:
+    """Required anti-affinity groups: how many, how many pods, and the largest (it sets a lower bound on nodes)."""
+    sizes = Counter(p.spread for p in pods if p.spread)
+    return {"groups": len(sizes), "pods": sum(sizes.values()), "largest": max(sizes.values(), default=0)}
 
 
 def plan_dict(p: Plan) -> dict:
@@ -27,7 +35,14 @@ def markdown(w: Workload, plans: list[Plan], mixed: Plan, region: str, strategy:
         f"- {len(w.pods)} pods to place, requesting **{total.cpu_m / 1000:.1f} vCPU** and **{_gib(total.mem_mi)}**",
         f"- {w.daemonsets} DaemonSets reserve {w.daemon_overhead.cpu_m}m CPU / "
         f"{w.daemon_overhead.mem_mi} MiB on every node",
-        f"- {w.defaulted} pods had no requests (default applied), {w.skipped} finished/static pods skipped", "",
+        f"- {w.defaulted} pods had no requests (default applied), {w.skipped} finished/static pods skipped",
+    ]
+    g = spread_groups(w.pods)
+    if g["groups"]:
+        lines.append(f"- {g['pods']} pods in {g['groups']} required anti-affinity groups (one replica per node), "
+                     f"largest {g['largest']}: no plan can use fewer nodes than that")
+    lines += [
+        "",
         "## Single-instance-type plans (cheapest first)", "",
         "| Instance type | Nodes | Lower bound | CPU used | Memory used | USD / month |",
         "|---|---|---|---|---|---|",

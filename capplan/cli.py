@@ -15,14 +15,14 @@ import sys
 from capplan import bench, kube, workloads
 from capplan.fleet import recommend
 from capplan.model import DEFAULT_CATALOG, Pod, Resources, load_catalog
-from capplan.report import markdown, plan_dict
+from capplan.report import markdown, plan_dict, spread_groups
 
 
 def _with_headroom(pods: list[Pod], h: float) -> list[Pod]:
     if h <= 0:
         return pods
     return [Pod(p.name, Resources(int(p.req.cpu_m * (1 + h) + 0.999), int(p.req.mem_mi * (1 + h) + 0.999)),
-                p.namespace) for p in pods]
+                p.namespace, p.spread) for p in pods]
 
 
 def cmd_plan(a: argparse.Namespace) -> int:
@@ -44,6 +44,7 @@ def cmd_plan(a: argparse.Namespace) -> int:
     if a.format == "json":
         out = json.dumps({"region": a.region, "strategy": a.strategy, "pods": len(pods),
                           "daemonsets": w.daemonsets, "defaulted": w.defaulted,
+                          "anti_affinity": spread_groups(pods),
                           "plans": [plan_dict(p) for p in plans], "mixed": plan_dict(mixed),
                           "current_cost_month_usd": current_cost}, indent=2)
     else:
@@ -66,7 +67,7 @@ def cmd_bench(a: argparse.Namespace) -> int:
 
 
 def cmd_sample(a: argparse.Namespace) -> int:
-    doc = workloads.pod_list_json(workloads.microservices(a.services, a.seed))
+    doc = workloads.pod_list_json(workloads.microservices(a.services, a.seed, a.ha))
     pathlib.Path(a.out).write_text(json.dumps(doc, indent=1), encoding="utf-8")
     print(f"wrote {len(doc['items'])} pods to {a.out}")
     return 0
@@ -104,6 +105,7 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--services", type=int, default=40)
     s.add_argument("--seed", type=int, default=7)
     s.add_argument("--out", default="pods.json")
+    s.add_argument("--ha", action="store_true", help="services with 3+ replicas require one replica per node")
     s.set_defaults(fn=cmd_sample)
 
     a = ap.parse_args(argv)

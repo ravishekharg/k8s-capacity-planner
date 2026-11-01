@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 kubectl apply -f e2e/workload.yaml
-kubectl -n shop rollout status deploy/api deploy/orders deploy/legacy --timeout=180s
+kubectl -n shop rollout status deploy/api deploy/orders deploy/legacy deploy/ha --timeout=180s
 kubectl -n shop rollout status ds/log-agent --timeout=180s
 kubectl -n shop wait --for=condition=complete job/done --timeout=180s
 
@@ -22,11 +22,13 @@ python - <<'EOF'
 import json
 p = json.load(open("plan.json"))
 # kind's own pods: coredns (2, ReplicaSet), local-path-provisioner (1); static control-plane pods are skipped
-shop = 4 + 2 + 1
+shop = 4 + 2 + 1 + 2
 checks = {
     "all shop pods + kind system pods read": p["pods"] >= shop,
     "daemonsets detected (log-agent + kindnet + kube-proxy)": p["daemonsets"] >= 3,
     "pod without requests defaulted": p["defaulted"] >= 1,
+    "HA replicas read as one anti-affinity group of 2": p["anti_affinity"] == {"groups": 1, "pods": 2, "largest": 2},
+    "plans honour it (at least 2 nodes)": all(pl["nodes"] >= 2 for pl in p["plans"]),
     "current cost computed from instance-type labels": (p["current_cost_month_usd"] or 0) > 0,
     "best plan respects lower bound": p["plans"][0]["nodes"] >= p["plans"][0]["lower_bound"],
     "mixed fleet not more expensive": p["mixed"]["cost_month_usd"] <= p["plans"][0]["cost_month_usd"],

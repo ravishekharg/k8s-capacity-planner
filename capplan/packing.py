@@ -8,12 +8,16 @@ autoscalers use greedy heuristics. Implemented here:
 - best_fit_decreasing    ... into the node it fits most tightly (least normalised slack left)
 - first_fit_decreasing_tree   first fit decreasing accelerated with a segment tree (identical result)
 
+Required pod anti-affinity (Pod.spread) is a conflict constraint on top: two pods with the same key never share a
+node. It raises the lower bound to the size of the largest group (k replicas need k nodes).
+
 Complexity: sorting O(n log n) + placement O(n * b) for n pods and b nodes with a linear scan, about
 O(n log b) with the segment tree. The exact solver in exact.py measures how far these heuristics are from optimal.
 """
 from __future__ import annotations
 
 import math
+from collections import Counter
 from collections.abc import Callable, Iterable
 
 from capplan.model import Node, NodeType, Pod, Resources
@@ -40,6 +44,7 @@ def lower_bound(pods: list[Pod], nt: NodeType, overhead: Resources = Resources()
         math.ceil(total.cpu_m / room.cpu_m),
         math.ceil(total.mem_mi / room.mem_mi),
         math.ceil(len(pods) / (nt.max_pods - overhead_pods)),
+        max(Counter(p.spread for p in pods if p.spread).values(), default=0),
     )
 
 
@@ -100,15 +105,17 @@ class _FreeTree:
         self.m = [mem] * (2 * self.n)
         self.s = [slots] * (2 * self.n)
 
-    def first_fit(self, cpu: int, mem: int) -> int:
-        def go(i: int) -> int:
-            if self.c[i] < cpu or self.m[i] < mem or self.s[i] < 1:
+    def first_fit(self, cpu: int, mem: int, start: int = 0) -> int:
+        """Leftmost slot >= start whose free capacity holds (cpu, mem) and one more pod."""
+        def go(i: int, lo: int, hi: int) -> int:          # tree node i covers slots [lo, hi)
+            if hi <= start or self.c[i] < cpu or self.m[i] < mem or self.s[i] < 1:
                 return -1
             if i >= self.n:
                 return i - self.n
-            left = go(2 * i)
-            return left if left >= 0 else go(2 * i + 1)
-        return go(1)
+            mid = (lo + hi) // 2
+            left = go(2 * i, lo, mid)
+            return left if left >= 0 else go(2 * i + 1, mid, hi)
+        return go(1, 0, self.n)
 
     def set(self, slot: int, cpu: int, mem: int, slots: int) -> None:
         i = slot + self.n
@@ -132,6 +139,8 @@ def first_fit_decreasing_tree(pods: list[Pod], nt: NodeType, overhead: Resources
     nodes: list[Node] = []
     for pod in _sorted_decreasing(pods, room):
         i = tree.first_fit(pod.req.cpu_m, pod.req.mem_mi)
+        while i < len(nodes) and nodes[i].conflicts(pod):    # a sibling replica is there: try the next fit
+            i = tree.first_fit(pod.req.cpu_m, pod.req.mem_mi, i + 1)
         if i == len(nodes):
             nodes.append(Node(nt, overhead))
         node = nodes[i]
@@ -153,3 +162,6 @@ def validate(nodes: list[Node], pods: list[Pod], overhead_pods: int = 0) -> None
             raise AssertionError(f"node over capacity: {n.used} > {n.type.allocatable}")
         if len(n.pods) + overhead_pods > n.type.max_pods:
             raise AssertionError("node over its max-pods limit")
+        keys = [p.spread for p in n.pods if p.spread]
+        if len(keys) != len(set(keys)):
+            raise AssertionError("two pods with the same anti-affinity key on one node")

@@ -71,6 +71,33 @@ class Workload:
     skipped: int                    # finished, static/mirror pods
 
 
+HOSTNAME = "kubernetes.io/hostname"
+
+
+def spread_key(meta: dict, spec: dict) -> str:
+    """Anti-affinity group of a pod, or "" if it has none the planner can honour.
+
+    A required podAntiAffinity term on the node level (topologyKey kubernetes.io/hostname) whose selector matches
+    the pod's own labels means "no two of us on one node": the usual way to keep HA replicas apart. Pods sharing
+    the namespace and the same selector form one group. Terms that select other workloads, other topology keys
+    (zones) and preferred (soft) terms are not modelled; see the README's limits.
+    """
+    labels = meta.get("labels") or {}
+    terms = (((spec.get("affinity") or {}).get("podAntiAffinity") or {})
+             .get("requiredDuringSchedulingIgnoredDuringExecution") or [])
+    for t in terms:
+        sel = t.get("labelSelector") or {}
+        match = dict(sel.get("matchLabels") or {})
+        for e in sel.get("matchExpressions") or []:
+            if e.get("operator") != "In" or labels.get(e.get("key")) not in (e.get("values") or []):
+                break
+            match[e["key"]] = labels[e["key"]]
+        else:
+            if t.get("topologyKey") == HOSTNAME and match and all(labels.get(k) == v for k, v in match.items()):
+                return meta.get("namespace", "default") + ":" + ",".join(f"{k}={v}" for k, v in sorted(match.items()))
+    return ""
+
+
 def _owner_kind(meta: dict) -> str:
     refs = meta.get("ownerReferences") or []
     return refs[0]["kind"] if refs else ""
@@ -94,7 +121,7 @@ def workload_from_pod_list(doc: dict, default: Resources = Resources(100, 128)) 
             continue
         if req == Resources():
             req, defaulted = default, defaulted + 1
-        pods.append(Pod(meta["name"], req, meta.get("namespace", "default")))
+        pods.append(Pod(meta["name"], req, meta.get("namespace", "default"), spread_key(meta, spec)))
     return Workload(pods, sum(ds_req.values(), Resources()), len(ds_req), defaulted, skipped)
 
 

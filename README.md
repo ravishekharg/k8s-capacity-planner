@@ -44,6 +44,17 @@ Same nodes, same pod placement (property-tested), about 10–20x faster.
 **$1,986/month**, equal to the lower bound for that type (provably the minimum node count), at 94% CPU / 88% memory
 of allocatable. Full report: [`examples/plan-ap-south-1.md`](examples/plan-ap-south-1.md).
 
+**What high availability costs** (same 40 services, `capplan sample --ha`: every service with 3+ replicas requires
+one replica per node, 146 pods in 31 anti-affinity groups, the largest of 6):
+
+| | Cheapest plan | USD / month |
+|---|---|---|
+| No anti-affinity | 4 x c6i.4xlarge | $1,986 |
+| Replicas kept on separate nodes | 3 x c6i.large + 16 x c6i.xlarge (right-sized) | $2,172 (+9%) |
+
+Four big nodes are no longer possible (a group of 6 needs 6 nodes), so the planner moves to more, smaller nodes.
+Knowing that the HA rule costs about 9% before buying capacity is the point.
+
 **End to end on kind:** 10 pods read through the API server (7 workload pods + coredns + local-path-provisioner),
 3 DaemonSets turned into per-node overhead, the static control-plane pods and the finished Job skipped, and the pod
 with an init container plus a native sidecar resolved to exactly 300m CPU / 144 MiB, as the scheduler computes it.
@@ -66,6 +77,11 @@ flowchart LR
   sidecars (`restartPolicy: Always` init containers) add to both phases, `spec.overhead` is added on top.
 - **Allocatable** uses the EKS AMI formulas (CPU: 6%/1%/0.5%/0.25% per core; memory: 255 MiB + 11 MiB per max pod
   + 100 MiB eviction). For m6i.large that is 1930m CPU and 7518 MiB, matching AWS's documented values.
+- **Required pod anti-affinity** (`requiredDuringSchedulingIgnoredDuringExecution`, `topologyKey:
+  kubernetes.io/hostname`, selecting the pod's own labels) makes the pods of one workload a group that never shares
+  a node. Every packer honours it (the segment tree skips a conflicting node and searches again to its right, so it
+  still matches the linear scan exactly), the exact solver treats it in its symmetry breaking, and the lower bound
+  rises to the size of the largest group.
 - **Catalog**: `capplan/catalog/ec2.json` is a dated snapshot (vCPU, memory, EKS max pods, Linux on-demand USD/hour for
   us-east-1, ap-south-1, eu-west-1) built by `scripts/refresh_catalog.py` from the public instances.vantage.sh
   dataset (built from the AWS pricing API).
@@ -87,14 +103,17 @@ non-root, read-only root filesystem.
 
 - Unit and **property-based tests** (Hypothesis): every packing is valid (each pod once, no node over CPU, memory
   or max pods), never below the lower bound, the exact solver sits between the bound and the heuristics, and the
-  segment-tree first fit returns exactly the same packing as the linear scan.
+  segment-tree first fit returns exactly the same packing as the linear scan, with and without anti-affinity
+  groups. The exact solver is checked against brute-force enumeration on small instances with groups.
 - Kubernetes semantics: quantity parsing, init containers, native sidecars, pod overhead, DaemonSets, static pods.
 - **End to end on a kind cluster** in CI: a real workload (Deployments, init container + native sidecar, DaemonSet,
-  a pod without requests, a finished Job) is deployed, `capplan plan --live` runs against the API server, and the
-  script asserts what was read, including the exact effective request of the init/sidecar pod.
+  an HA Deployment with required anti-affinity, a pod without requests, a finished Job) is deployed, `capplan plan
+  --live` runs against the API server, and the script asserts what was read, including the exact effective request
+  of the init/sidecar pod and the HA replicas as one anti-affinity group.
 
 ## Limits (deliberately out of scope)
 
-Affinity/anti-affinity, topology spread, taints, PDBs, GPUs and spot pricing are not modelled; the planner answers
-"how much capacity", not "where exactly each pod lands". Karpenter does live consolidation; this tool is for
-planning, budgeting and right-sizing reviews.
+Required anti-affinity across nodes is modelled. Not modelled: preferred (soft) anti-affinity, anti-affinity
+against other workloads, zone-level topology spread, node affinity, taints, PDBs, GPUs and spot pricing. The planner
+answers "how much capacity", not "where exactly each pod lands". Karpenter does live consolidation; this tool is
+for planning, budgeting and right-sizing reviews. Design and trade-offs: [`docs/architecture.md`](docs/architecture.md).

@@ -31,6 +31,9 @@ class Pod:
     name: str
     req: Resources
     namespace: str = "default"
+    # required pod anti-affinity on the node (topologyKey kubernetes.io/hostname): pods with the same non-empty
+    # key must land on different nodes, e.g. the replicas of one HA Deployment
+    spread: str = ""
 
 
 @dataclass(frozen=True)
@@ -59,6 +62,7 @@ class Node:
     overhead: Resources = field(default_factory=Resources)      # DaemonSet requests present on every node
     pods: list[Pod] = field(default_factory=list)
     used: Resources = field(default_factory=Resources)
+    spread: set[str] = field(default_factory=set)               # anti-affinity keys already on this node
 
     def __post_init__(self) -> None:
         self.used = self.used + self.overhead
@@ -68,11 +72,17 @@ class Node:
         return self.type.allocatable - self.used
 
     def can_fit(self, pod: Pod, overhead_pods: int = 0) -> bool:
-        return pod.req.fits_in(self.free) and len(self.pods) + overhead_pods < self.type.max_pods
+        return (pod.req.fits_in(self.free) and len(self.pods) + overhead_pods < self.type.max_pods
+                and not self.conflicts(pod))
+
+    def conflicts(self, pod: Pod) -> bool:
+        return bool(pod.spread) and pod.spread in self.spread
 
     def add(self, pod: Pod) -> None:
         self.pods.append(pod)
         self.used = self.used + pod.req
+        if pod.spread:
+            self.spread.add(pod.spread)
 
 
 def load_catalog(region: str, path: pathlib.Path = DEFAULT_CATALOG, families: list[str] | None = None,
