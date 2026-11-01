@@ -55,9 +55,10 @@ one replica per node, 146 pods in 31 anti-affinity groups, the largest of 6):
 Four big nodes are no longer possible (a group of 6 needs 6 nodes), so the planner moves to more, smaller nodes.
 Knowing that the HA rule costs about 9% before buying capacity is the point.
 
-**End to end on kind:** 10 pods read through the API server (7 workload pods + coredns + local-path-provisioner),
-3 DaemonSets turned into per-node overhead, the static control-plane pods and the finished Job skipped, and the pod
-with an init container plus a native sidecar resolved to exactly 300m CPU / 144 MiB, as the scheduler computes it.
+**End to end on kind:** 12 pods read through the API server (9 workload pods + coredns + local-path-provisioner),
+3 DaemonSets turned into per-node overhead, the static control-plane pods and the finished Job skipped, the pod
+with an init container plus a native sidecar resolved to exactly 300m CPU / 144 MiB, as the scheduler computes it,
+and the 2 replicas of the HA Deployment read as one anti-affinity group, so every plan uses at least 2 nodes.
 
 ## How it works
 
